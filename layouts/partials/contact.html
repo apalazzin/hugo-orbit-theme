@@ -1,7 +1,11 @@
             <div class="contact-container container-block">
                 <ul class="list-unstyled contact-list">
 				{{ range .Site.Params.contact.list }}
-                    <li class="{{ .class }}"><i class="fa {{ .icon }}"></i><a href="{{ .url }}">{{ .title }}</a></li>
+					{{ if .url }}
+						<li class="{{ .class }}"><i class="fa {{ .icon }}"></i><a href="{{ .url }}">{{ .title }}</a></li>
+					{{ else }}
+						<li class="{{ .class }}"><i class="fa {{ .icon }}"></i>{{ .title }}</li>
+					{{ end }}
 				{{ end }}
                 </ul>
             </div><!--//contact-container-->
